@@ -1,0 +1,116 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% a0poster Portrait Poster
+% LaTeX Template
+% Version 1.0 (22/06/13)
+%
+% The a0poster class was created by:
+% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
+% 
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0,portrait]{a0poster}
+
+\usepackage{multicol} % This is so we can have multiple columns of text side-by-side
+\columnsep=100pt % This is the amount of white space between the columns in the poster
+\columnseprule=3pt % This is the thickness of the black line between the columns in the poster
+
+\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{graphicx}
+\usepackage{amssymb, amsmath}
+\usepackage{xfrac}
+\usepackage[section]{placeins}
+\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+\usepackage{wrapfig}
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage[caption=false]{subfig}
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\graphicspath{{figures/}}
+\usepackage{xcolor, colortbl}
+\usepackage{adjustbox}
+\usepackage{array,multirow}
+\usepackage{float}
+\usepackage{libertine}
+\usepackage{libertinust1math}
+%\usepackage[T1]{fontenc}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\newcolumntype{R}[2]{%
+	>{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+	l%
+	<{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{90}{1em}}}% no optional argument here, please!
+
+
+\definecolor{redish}{rgb}{0.8,0.5,0}
+\definecolor{gray2}{gray}{0.5}
+\definecolor{gray}{rgb}{.8,.8,.8}
+
+
+%\newcommand{\gray}{\cellcolor{gray}}
+\newcommand{\redt}{\textcolor{redish}}
+\newcommand{\redm}{\textcolor{red}}
+\def\comment{\textcolor{red}}{{}}
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+
+% The header is divided into two boxes:
+% The first is 75% wide and houses the title, subtitle, names, university/organization and contact information
+% The second is 25% wide and houses a logo for your university/organization or a photo of you
+% The widths of these boxes can be easily edited to accommodate your content as you see fit
+
+\begin{minipage}[b]{0.8\linewidth} % make this 0.7 if there is also a QR code
+\veryHuge \color{NavyBlue} \textbf{Title \\ more if title is long} \color{Black}\\[2cm] % Title 
+%\Huge\textit{An Exploration of Complexity}\\[2cm] % Subtitle
+\huge \textbf{Authors}\\[0.5cm] % Author(s)
+\small ARTORG Center for Biomedical Engineering Research, Artificial Intelligence in Medical Imaging Laboratory, Universit\"{a}t Bern, Switzerland % [0.4cm] University/organization
+%  \Large \texttt{john@LaTeXTemplates.com} --- 1 (000) 111 1111\\
+\end{minipage}
+\begin{minipage}[b]{0.2\linewidth}
+	\includegraphics[width=12cm]{logos/unibe}
+\end{minipage}
+% uncomment this if you have a QR code
+%\begin{minipage}[b]{0.1\linewidth}
+%	\includegraphics[width=6cm]{qrcode}
+%\end{minipage}
+
+
+\vspace{1cm} % A bit of extra whitespace between the header and poster content
+
+%----------------------------------------------------------------------------------------
+
+\begin{multicols}{2} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
+
+\input{intro.tex}
+\input{method.tex}
+\input{experiments_results.tex}
+\input{Conclusions.tex}
+
+%\nocite{*} % Print all references regardless of whether they were cited in the poster or not
+\small{
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+\textbf{Funding:} This work was partly funded by the Swiss National Science Foundation grant No. xxx.}
+\end{multicols}
+\end{document}
